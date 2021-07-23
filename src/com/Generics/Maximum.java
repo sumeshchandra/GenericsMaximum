@@ -40,10 +40,41 @@ public class Maximum {
         }
         return maxFNumber;
     }
+    /**
+     * String numberOne
+     * String numberTwo
+     * String numberThree
+     * return Maximum of 3 string*/
+    
+    public static String findMaxofString(String numberOne, String numberTwo, String numberThree) {
+    	String maxString = numberOne;
+    	if (numberOne.compareTo(maxString) > 0) {
+    		maxString = numberTwo;
+    	}
+    	if (numberThree.compareTo(maxString) > 0) {
+    		maxString = numberThree;
+    	}
+    	return maxString;
+    }
     
     public static void main(String[] args) {
 		System.out.println(findMaxNumber(123,435,567));
 		System.out.println(findFloatMaxNumber(13.4f,34.5f,6f));
+		System.out.println(findMaxofString("galaxy", "universe", "world"));
 	}
    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
