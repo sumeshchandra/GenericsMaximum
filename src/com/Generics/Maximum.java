@@ -10,6 +10,7 @@ public class Maximum {
      *  numberThree
      *  return --> maxNumber
      */
+	
     public static Integer findMaxNumber(Integer numberOne, Integer numberTwo, Integer numberThree) {
         Integer maxNumber = numberOne;
         if (numberTwo.compareTo(maxNumber) > 0) {
@@ -20,8 +21,29 @@ public class Maximum {
         }
         return maxNumber;
     }
+    
+    /**
+     * As above it'll work the same but having only float values.
+     *  numberOne
+     *  numberTwo
+     *  numberThree
+     * @return maxFNumber
+     */
+
+    public static Float findFloatMaxNumber(Float numberOne, Float numberTwo, Float numberThree) {
+        Float maxFNumber = numberOne;
+        if (numberTwo.compareTo(maxFNumber) > 0) {
+        	maxFNumber = numberTwo;
+        }
+        if (numberThree.compareTo(maxFNumber) > 0) {
+        	maxFNumber = numberThree;
+        }
+        return maxFNumber;
+    }
+    
     public static void main(String[] args) {
 		System.out.println(findMaxNumber(123,435,567));
+		System.out.println(findFloatMaxNumber(13.4f,34.5f,6f));
 	}
    
 }
