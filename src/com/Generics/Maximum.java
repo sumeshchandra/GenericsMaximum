@@ -1,40 +1,42 @@
 package com.Generics;
 
 public class Maximum<T extends Comparable<T>> {
-	T firstValue, secondValue, thirdValue;
+	T[] inputArray;
 
 	/**
-	 * here i have used Generic Class. here T is the type of data. Gradually it
-	 * will return the max value. firstValue secondValue thirdValue <T>
-	 * Generic has Type that extends Comparable, with a parameter constructor.
+	 * here i have used Generic Class. here T is the type of data. Gradually it will
+	 * return the max value. firstValue secondValue thirdValue <T> Generic has Type
+	 * that extends Comparable, with a parameter constructor.
 	 * 
 	 * @return maxValue
 	 */
-	public Maximum(T firstValue, T secondValue, T thirdValue) {
-		this.firstValue = firstValue;
-		this.secondValue = secondValue;
-		this.thirdValue = thirdValue;
+	public Maximum(T[] inputArray) {
+		this.inputArray = inputArray;
 	}
 
 	public T getMaximum() {
-		return Maximum.getMaximum(firstValue, secondValue, thirdValue);
+		return Maximum.getMaximum(inputArray);
 	}
 
-	public static <T extends Comparable<T>> T getMaximum(T firstValue, T secondValue, T thirdValue) {
-		T maxValue = firstValue;
-		if (secondValue.compareTo(maxValue) > 0) {
-			maxValue = secondValue;
-		}
-		if (thirdValue.compareTo(maxValue) > 0) {
-			maxValue = thirdValue;
+	public static <T extends Comparable<T>> T getMaximum(T[] inputArray) {
+		T maxValue = inputArray[0];
+		for (int i = 0; i < inputArray.length; i++) {
+			T element = inputArray[i];
+			if (element.compareTo(maxValue) > 0) {
+				maxValue = element;
+			}
 		}
 		return maxValue;
+
 	}
 
 	public static void main(String[] args) {
-		System.out.println(getMaximum(123, 435, 567));
-		System.out.println(getMaximum(13.4f, 34.5f, 60.5f));
-		System.out.println(getMaximum("galaxy", "universe", "world"));
+		Integer[] intArray = { 10, 30, 50, 40, 60, 20 };
+		Float[] floatArray = { 10.5f, 23.4f, 35.7f, 47.2f };
+		String[] stringArray = { "apple", "banana", "cherry", "pear", "orange" };
+		System.out.println(new Maximum(intArray).getMaximum());
+		System.out.println(new Maximum(floatArray).getMaximum());
+		System.out.println(new Maximum(stringArray).getMaximum());
 	}
 
 }
